@@ -1,0 +1,39 @@
+body {
+    margin: 8% 16% 8% 16%;
+    font-family: Arial;
+    font-size: 15px;
+    color: #666666;
+}
+
+a {
+    text-decoration: none;
+    color: #6633cc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 2;
+    font-weight: normal;
+    margin: 0px;
+}
+
+h1 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #000000;
+}
+
+h2 {
+    font-size: 21px;
+    color: #333333;
+}
+
+h3 {
+    font-size: 17px;
+    color: #333333;
+}
+
+pre {
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    padding: 16px;
+}
