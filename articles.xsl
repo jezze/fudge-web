@@ -8,15 +8,15 @@
         <ul>
             <li><a href="overview.html">Overview</a></li>
         </ul>
-        <h2>Kernel</h2>
+        <h2>User guide</h2>
         <ul>
-            <li><a href="memorymap.html">Memory map</a></li>
-            <li><a href="modules.html">Modules</a></li>
+            <li><a href="#">Using slang</a></li>
+            <li><a href="#">Writing a program</a></li>
         </ul>
-        <h2>Tutorials</h2>
+        <h2>Kernel infrastructure</h2>
         <ul>
-            <li><a href="usingslang.html">Using slang</a></li>
-            <li><a href="writeprogram.html">Writing a program</a></li>
+            <li><a href="#">Memory map</a></li>
+            <li><a href="#">Modules</a></li>
         </ul>
     </xsl:template>
 </xsl:stylesheet>

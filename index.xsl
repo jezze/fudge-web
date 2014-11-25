@@ -7,7 +7,7 @@
         <h2>Documentation</h2>
         <p><a href="articles.html">Articles</a>, <a href="license.html">License</a></p>
         <h2>Development</h2>
-        <p><a href="fetching.html">Fetching</a>, <a href="building.html">Build/Install</a>, <a href="qemu.html">QEMU emulation</a>, <a href="qemu.html">QEMU emulation</a></p>
+        <p><a href="source.html">Source code</a>, <a href="building.html">Building Fudge</a></p>
         <h2>Community</h2>
         <p><a href="irc.html">IRC</a></p>
     </xsl:template>

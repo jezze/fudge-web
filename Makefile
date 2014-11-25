@@ -1,5 +1,5 @@
 XML:=data.xml
-OUT:=build build/articles.html build/building.html build/fetching.html build/grub.html build/grub2.html build/index.html build/irc.html build/license.html build/overview.html build/style.css
+OUT:=build build/articles.html build/building.html build/source.html build/index.html build/irc.html build/license.html build/overview.html build/style.css
 
 all: $(OUT)
 
@@ -15,13 +15,7 @@ build/articles.html: articles.xsl
 build/building.html: building.xsl
 	xsltproc -o $@ $< $(XML)
 
-build/fetching.html: fetching.xsl
-	xsltproc -o $@ $< $(XML)
-
-build/grub.html: grub.xsl
-	xsltproc -o $@ $< $(XML)
-
-build/grub2.html: grub2.xsl
+build/source.html: source.xsl
 	xsltproc -o $@ $< $(XML)
 
 build/index.html: index.xsl

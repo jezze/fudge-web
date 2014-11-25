@@ -3,14 +3,8 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:include href="common.xsl"/>
     <xsl:template name="main">
-        <h1>Using Grub 2</h1>
-        <p>If you use Grub 2 add an entry to grub.cfg:</p>
-        <pre>
-menuentry "Fudge" {
-    multiboot /fudge
-    module /initrd.tar
-    boot
-}
-        </pre>
+        <h1>Source code</h1>
+        <p>The prefered way to get the source code is to clone the git repository from github.</p>
+        <pre>$ git clone git://github.com/jezze/fudge.git</pre>
     </xsl:template>
 </xsl:stylesheet>
