@@ -70,7 +70,7 @@ $ export PATH=/home/foo/x-tools/i386-unknown-elf/bin:$PATH
         <pre>$ make ARCH=arm</pre>
         <p>Thats it! You should now have a binary called fudge and an initrd.tar file in the base folder.</p>
         <h2>3a. Use QEMU to virtualize Fudge</h2>
-        <p>QEMU is a really fast and accurate emulator for various architectures. It is a perfect tool to to test Fudge before installing it on a real machine.</p>
+        <p>QEMU is a really fast and accurate emulator for various architectures. It is a great tool to emulate Fudge before installing it on a real machine.</p>
         <h3>Option #1: If you have built the x86 version of Fudge</h3>
         <p>Start Fudge:</p>
         <pre>

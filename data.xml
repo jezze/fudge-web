@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <data>
+    <crosstool-ng version="1.20.0"/>
+    <architectures>
+        <arch id="arm" target="arm-unknown-eabi"/>
+        <arch id="x86" target="x86-unknown-elf"/>
+    </architectures>
 </data>
