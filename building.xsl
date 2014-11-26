@@ -18,7 +18,8 @@
         <p>To build Fudge you need to have a Unix compatible system like Linux or *BSD. You also need the basic development tools that usually ship with your distribution.</p>
         <h2>1. Create a cross compiler using crosstool-ng</h2>
         <p>In order to compile Fudge you first need to set up a cross-compiler on your computer. Thanks to <a href="http://www.crosstool-ng.org/">crosstool-ng</a> this is a really easy.</p>
-        <p>First download and install crosstool-ng. This document uses version 1.20.0.</p>
+        <h3>Install crosstool-ng</h3>
+        <p>First download and install crosstool-ng. The recommended version is 1.20.0.</p>
         <pre>
 $ wget http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.20.0.tar.bz2
 $ tar xjf crosstool-ng-1.20.0.tar.bz2
@@ -33,54 +34,44 @@ $ make
 $ mkdir temp
 $ cd temp
         </pre>
-        <h3>Optional: Target the x86 version of Fudge (recommended)</h3>
+        <h3>Option #1: Target the x86 version of Fudge (recommended)</h3>
         <p>Create a default configuration by using the i386-unknown-elf sample:</p>
         <pre>
 $ ct-ng i386-unknown-elf
         </pre>
-        <p>By default the cross-compiler will be installed in /home/[USER]/x-tools/. If you do not want that, or you want to do any other modification, you can edit the configuration now by using ct-ng menuconfig. Please refer to the <a href="http://www.crosstool-ng.org/">crosstool-ng website</a> for more information.</p>
-        <p>Now it is time to build the cross-compiler:</p>
-        <pre>
-$ ct-ng build
-        </pre>
-        <p>Depending on your system this can take some time. Grab a coffee.</p>
-        <p>When everything is done, the last step you need to do before compiling Fudge is to add the /home/[USER]/x-tools/bin folder to your PATH variable. Make sure you replace [USER] with your username.</p>
-        <pre>
-$ export PATH=/home/[USER]/x-tools/i386-unknown-elf/bin:$PATH
-        </pre>
-        <p>Congratulations. You now have a working cross-compiler. Remember that the PATH variable you have changed will only work in the current shell you are using so if you open a new shell you need to export the PATH variable again.</p>
-        <h3>Optional: Target the arm version of Fudge (not recommended)</h3>
+        <h3>Option #2: Target the arm version of Fudge (not recommended)</h3>
         <p>Create a default configuration by using the arm-unknown-eabi sample:</p>
         <pre>
 $ ct-ng arm-unknown-eabi
         </pre>
+        <h3>Start the cross-compiler build</h3>
         <p>By default the cross-compiler will be installed in /home/[USER]/x-tools/. If you do not want that, or you want to do any other modification, you can edit the configuration now by using ct-ng menuconfig. Please refer to the <a href="http://www.crosstool-ng.org/">crosstool-ng website</a> for more information.</p>
         <p>Now it is time to build the cross-compiler:</p>
         <pre>
 $ ct-ng build
         </pre>
         <p>Depending on your system this can take some time. Grab a coffee.</p>
-        <p>When everything is done, the last step you need to do before compiling Fudge is to add the /home/[USER]/x-tools/bin folder to your PATH variable. Make sure you replace [USER] with your username.</p>
-        <pre>
-$ export PATH=/home/[USER]/x-tools/arm-unknown-eabi/bin:$PATH
-        </pre>
-        <p>Congratulations. You now have a working cross-compiler. Remember that the PATH variable you have changed will only work in the current shell you are using so if you open a new shell you need to export the PATH variable again.</p>
         <h2>2. Build Fudge using the cross-compiler</h2>
         <p>First you need to acquire the source code for Fudge. The simplest way is to clone it with git.</p>
         <pre>
 $ git clone git://github.com/jezze/fudge.git
 $ cd fudge
         </pre>
-        <p>Building Fudge is really simple and quick. The only thing you need to do is to write make and set the ARCH flag to the architecture you are using. If left out, it will be x86.</p>
-        <h3>Optional: If you are using the x86 cross-compiler</h3>
+        <p>Building Fudge is really simple and quick.</p>
+        <p>First step is to add the cross-compiler to your PATH variable. In this example the cross-compiler was targeting i386-unknown-elf and installed in /home/foo/x-tools/. Change this to match your setup.</p>
+        <pre>
+$ export PATH=/home/foo/x-tools/i386-unknown-elf/bin:$PATH
+        </pre>
+        <p>The PATH variable will only work in the current shell you are using so if you open a new shell you need to export the PATH variable again.</p>
+        <h3>Option #1: If you are using the x86 cross-compiler</h3>
         <pre>$ make ARCH=x86</pre>
         <p>Thats it! You should now have a binary called fudge and an initrd.tar file in the base folder.</p>
-        <h3>Optional: If you are using the arm cross-compiler</h3>
+        <h3>Option #2: If you are using the arm cross-compiler</h3>
         <pre>$ make ARCH=arm</pre>
         <p>Thats it! You should now have a binary called fudge and an initrd.tar file in the base folder.</p>
         <h2>3a. Use QEMU to virtualize Fudge</h2>
         <p>QEMU is a really fast and accurate emulator for various architectures. It is a perfect tool to to test Fudge before installing it on a real machine.</p>
-        <h3>Optional: If you have built the x86 version of Fudge</h3>
+        <h3>Option #1: If you have built the x86 version of Fudge</h3>
         <p>Start Fudge:</p>
         <pre>
 $ qemu-system-x86 -kernel fudge -initrd initrd.tar
@@ -91,12 +82,12 @@ $ qemu-system-x86 -kernel fudge -initrd initrd.tar
 -vga std
 -net nic,model=rtl8139 -net tap,script=no,downscript=no,ifname=tap0
         </pre>
-        <h3>Optional: If you have built the arm version of Fudge</h3>
+        <h3>Option #2: If you have built the arm version of Fudge</h3>
         <p>Start Fudge:</p>
         <pre>
 $ qemu-system-arm -machine integratorcp -m 128 -kernel fudge -initrd initrd.tar -serial stdio
         </pre>
-        <p>NOTICE: Fudge currently only targets the integratorcp</p>
+        <p>NOTICE: Fudge currently only targets the integratorcp platform.</p>
         <h2>3b. Install Fudge on real hardware</h2>
         <p>This section is only specific to the x86 version of Fudge. Fudge can run perfectly well side by side next to whatever operating system you are using like Linux. Since Fudge is multiboot compliant you need to use a multiboot compliant bootloader like Grub Legacy or Grub 2.</p>
         <p>First either copy the fudge binary and the initrd.tar ramdisk to your boot folder or issue this command as root:</p>
@@ -104,7 +95,7 @@ $ qemu-system-arm -machine integratorcp -m 128 -kernel fudge -initrd initrd.tar 
 $ make install [INSTALL_PATH=/boot]
         </pre>
         <p>This will copy fudge and initrd.tar to your /boot folder. Add the INSTALL_PATH variable if you happen to have your boot directory somewhere else.</p>
-        <h3>Optional: Using Grub Legacy</h3>
+        <h3>Option #1: Using Grub Legacy</h3>
         <p>Add an entry to menu.lst:</p>
         <pre>
 title  Fudge
@@ -112,7 +103,7 @@ root   (hd0,0)
 kernel /fudge
 module /initrd.tar
         </pre>
-        <h3>Optional: Using Grub 2</h3>
+        <h3>Option #2: Using Grub 2</h3>
         <p>Add an entry to grub.cfg:</p>
         <pre>
 menuentry "Fudge" {
