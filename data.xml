@@ -3,7 +3,13 @@
 <data>
     <crosstool-ng version="1.20.0"/>
     <architectures>
-        <arch id="arm" target="arm-unknown-eabi"/>
-        <arch id="x86" target="x86-unknown-elf"/>
+        <architecture id="arm">
+            <target>arm-unknown-eabi</target>
+            <platform>pc</platform>
+        </architecture>
+        <architecture id="x86">
+            <target>x86-unknown-elf</target>
+            <platform>integratorcp</platform>
+        </architecture>
     </architectures>
 </data>
