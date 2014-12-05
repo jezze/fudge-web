@@ -5,7 +5,7 @@
     <xsl:param name="arch"/>
     <xsl:template name="main">
         <h1>Howto</h1>
-        <h2>Building Fudge from source</h2>
+        <h2>Build Fudge</h2>
         <h3>Building a cross-compiler</h3>
         <p>This guide shows you how to build a cross-compiler for a specific target. The cross-compiler is needed to compile Fudge.</p>
         <ul>
@@ -20,7 +20,7 @@
                 <li><a><xsl:attribute name="href">build-fudge-<xsl:value-of select="@id"/>.html</xsl:attribute>Building Fudge (<xsl:value-of select="@id"/>)</a></li>
             </xsl:for-each>
         </ul>
-        <h2>Running Fudge</h2>
+        <h2>Run Fudge</h2>
         <h3>Inside an emulator</h3>
         <p>This guide shows you how to run Fudge in QEMU.</p>
         <ul>

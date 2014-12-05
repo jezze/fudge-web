@@ -14,7 +14,7 @@ $ git clone git://github.com/jezze/fudge.git
 $ cd fudge
         </pre>
         <h3>Set the PATH environment variable</h3>
-        <p>In this example the cross-compiler was installed in /home/foo/x-tools/. Change this to match your setup. If you haven't made any major modifications you just need to change foo to your username.</p>
+        <p>In this example the cross-compiler was installed in /home/foo/x-tools/<xsl:value-of select="/data/architectures/architecture[@id = $arch]/target"/>/. Change this to match your setup. If you haven't made any major modifications you just need to change foo to your username.</p>
         <pre>
 $ export PATH=/home/foo/x-tools/<xsl:value-of select="/data/architectures/architecture[@id = $arch]/target"/>/bin:$PATH
         </pre>
