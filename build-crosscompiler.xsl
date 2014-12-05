@@ -31,7 +31,7 @@ $ ct-ng menuconfig
         <pre>
 Target options -> Target Architecture -> <xsl:value-of select="$arch"/>
         </pre>
-        <p>By default the cross-compiler will be installed in ~/x-tools/. You can change this if you want. Please refer to the <a href="http://www.crosstool-ng.org/">crosstool-ng website</a> for more information on how to customize your setup.</p>
+        <p>By default the cross-compiler will be installed in ~/x-tools/<xsl:value-of select="/data/architectures/architecture[@id = $arch]/target"/>/. You can change this if you want. Please refer to the <a href="http://www.crosstool-ng.org/">crosstool-ng website</a> for more information on how to customize your setup.</p>
         <p>Exit the configuration tool by pressing exit a few times. Before you leave the last screen you will be asked if you want to save these settings. Press yes.</p>
         <h3>Building</h3>
         <p>Start to build the cross-compiler:</p>
