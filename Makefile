@@ -13,54 +13,15 @@ clean:
 $(BUILD):
 	mkdir -p $@
 
-$(BUILD)/articles.html: articles.xsl
-	xsltproc -o $@ $< $(XML)
-
-$(BUILD)/build-crosscompiler-arm.html: build-crosscompiler.xsl
+$(BUILD)/%-arm.html: %.xsl
 	xsltproc -o $@ --stringparam arch arm $< $(XML)
 
-$(BUILD)/build-crosscompiler-x86.html: build-crosscompiler.xsl
+$(BUILD)/%-x86.html: %.xsl
 	xsltproc -o $@ --stringparam arch x86 $< $(XML)
 
-$(BUILD)/build-fudge-arm.html: build-fudge.xsl
-	xsltproc -o $@ --stringparam arch arm $< $(XML)
-
-$(BUILD)/build-fudge-x86.html: build-fudge.xsl
-	xsltproc -o $@ --stringparam arch x86 $< $(XML)
-
-$(BUILD)/build.html: build.xsl
+$(BUILD)/%.html: %.xsl
 	xsltproc -o $@ $< $(XML)
 
-$(BUILD)/grub.html: grub.xsl
-	xsltproc -o $@ $< $(XML)
-
-$(BUILD)/grub2.html: grub2.xsl
-	xsltproc -o $@ $< $(XML)
-
-$(BUILD)/index.html: index.xsl
-	xsltproc -o $@ $< $(XML)
-
-$(BUILD)/install.html: install.xsl
-	xsltproc -o $@ $< $(XML)
-
-$(BUILD)/irc.html: irc.xsl
-	xsltproc -o $@ $< $(XML)
-
-$(BUILD)/license.html: license.xsl
-	xsltproc -o $@ $< $(XML)
-
-$(BUILD)/overview.html: overview.xsl
-	xsltproc -o $@ $< $(XML)
-
-$(BUILD)/source.html: source.xsl
-	xsltproc -o $@ $< $(XML)
-
-$(BUILD)/qemu-arm.html: qemu.xsl
-	xsltproc -o $@ --stringparam arch arm $< $(XML)
-
-$(BUILD)/qemu-x86.html: qemu.xsl
-	xsltproc -o $@ --stringparam arch x86 $< $(XML)
-
-$(BUILD)/style.css: style.css
+$(BUILD)/%.css: %.css
 	cp $< $@
 

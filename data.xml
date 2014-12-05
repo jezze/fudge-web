@@ -5,11 +5,11 @@
     <architectures>
         <architecture id="arm">
             <target>arm-unknown-eabi</target>
-            <platform>pc</platform>
+            <platform>integratorcp</platform>
         </architecture>
         <architecture id="x86">
             <target>x86-unknown-elf</target>
-            <platform>integratorcp</platform>
+            <platform>pc</platform>
         </architecture>
     </architectures>
 </data>
