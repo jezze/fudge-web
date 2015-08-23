@@ -13,13 +13,13 @@
         <xsl:choose>
             <xsl:when test="$arch = 'arm'">
                 <pre>
-$ qemu-system-arm -machine integratorcp -m 128 -kernel fudge -initrd initrd.tar -serial stdio
+$ qemu-system-arm -machine integratorcp -m 128 -kernel fudge -initrd fudge.cpio -serial stdio
                 </pre>
                 <p>NOTICE: Fudge currently only targets the integratorcp platform.</p>
             </xsl:when>
             <xsl:when test="$arch = 'x86'">
                 <pre>
-$ qemu-system-x86 -kernel fudge -initrd initrd.tar
+$ qemu-system-x86 -kernel fudge -initrd fudge.cpio
                 </pre>
                 <p>Possible extra options that Fudge supports:</p>
                 <pre>
