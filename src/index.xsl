@@ -4,11 +4,11 @@
     <xsl:include href="common.xsl"/>
     <xsl:template name="main">
         <h1>Fudge operating system</h1>
-        <h2>Documentation</h2>
+        <h3>Documentation</h3>
         <p><a href="overview.html">Overview</a>, <a href="license.html">License</a>, <a href="http://download.fudgeos.com/fudge/">Download</a></p>
-        <h2>Development</h2>
+        <h3>Development</h3>
         <p><a href="source.html">Source code</a>, <a href="howto.html">Howto</a></p>
-        <h2>Community</h2>
+        <h3>Community</h3>
         <p><a href="irc.html">IRC</a></p>
     </xsl:template>
 </xsl:stylesheet>
