@@ -8,7 +8,7 @@
         <pre>
 menuentry "Fudge" {
     multiboot /fudge
-    module /initrd.tar
+    module /fudge.cpio
     boot
 }
         </pre>

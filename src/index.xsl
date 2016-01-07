@@ -5,7 +5,7 @@
     <xsl:template name="main">
         <h1>Fudge operating system</h1>
         <h3>Documentation</h3>
-        <p><a href="overview.html">Overview</a>, <a href="license.html">License</a>, <a href="http://download.fudgeos.com/fudge/">Download</a></p>
+        <p><a href="overview.html">Overview</a>, <a href="license.html">License</a>, <a href="http://download.fudgeos.com/">Download</a></p>
         <h3>Development</h3>
         <p><a href="source.html">Source code</a>, <a href="howto.html">Howto</a></p>
         <h3>Community</h3>

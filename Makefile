@@ -1,28 +1,36 @@
-XML:=data.xml
-BUILD:=build
-SRC:=src
-XSL_INDEX:=$(BUILD)/index.html
-XSL_BUILD:=$(BUILD)/build-crosscompiler-arm.html $(BUILD)/build-crosscompiler-x86.html $(BUILD)/build-fudge-arm.html $(BUILD)/build-fudge-x86.html $(BUILD)/howto.html
-XSL_EXTRA:=$(BUILD)/articles.html $(BUILD)/grub.html $(BUILD)/grub2.html $(BUILD)/install.html $(BUILD)/irc.html $(BUILD)/license.html $(BUILD)/overview.html $(BUILD)/source.html $(BUILD)/qemu-arm.html $(BUILD)/qemu-x86.html
-CSS_STYLE:=$(BUILD)/style.css
+DIR_SRC:=src
+DIR_BUILD:=build
+DIR_INSTALL:=/srv/http/fudgeos
 
-all: $(BUILD) $(XSL_INDEX) $(XSL_BUILD) $(XSL_EXTRA) $(CSS_STYLE)
+XML:=data.xml
+XSL:=$(DIR_BUILD)/index.html
+XSL+=$(DIR_BUILD)/build-crosscompiler-arm.html $(DIR_BUILD)/build-crosscompiler-x86.html $(DIR_BUILD)/build-fudge-arm.html $(DIR_BUILD)/build-fudge-x86.html $(DIR_BUILD)/howto.html
+XSL+=$(DIR_BUILD)/articles.html $(DIR_BUILD)/grub.html $(DIR_BUILD)/grub2.html $(DIR_BUILD)/install.html $(DIR_BUILD)/irc.html $(DIR_BUILD)/license.html $(DIR_BUILD)/overview.html $(DIR_BUILD)/source.html $(DIR_BUILD)/qemu-arm.html $(DIR_BUILD)/qemu-x86.html
+CSS:=$(DIR_BUILD)/style.css
+
+all: $(DIR_BUILD) $(XSL) $(CSS)
 
 clean:
-	rm -rf $(BUILD)
+	rm -rf $(DIR_BUILD)
 
-$(BUILD):
+install: $(DIR_INSTALL)
+
+$(DIR_BUILD):
 	mkdir -p $@
 
-$(BUILD)/%-arm.html: $(SRC)/%.xsl
+$(DIR_BUILD)/%-arm.html: $(DIR_SRC)/%.xsl
 	xsltproc -o $@ --stringparam arch arm $< $(XML)
 
-$(BUILD)/%-x86.html: $(SRC)/%.xsl
+$(DIR_BUILD)/%-x86.html: $(DIR_SRC)/%.xsl
 	xsltproc -o $@ --stringparam arch x86 $< $(XML)
 
-$(BUILD)/%.html: $(SRC)/%.xsl
+$(DIR_BUILD)/%.html: $(DIR_SRC)/%.xsl
 	xsltproc -o $@ $< $(XML)
 
-$(BUILD)/%.css: %.css
+$(DIR_BUILD)/%.css: %.css
 	cp $< $@
+
+$(DIR_INSTALL): $(DIR_BUILD)
+	mkdir -p $@
+	cp $(DIR_BUILD)/* $@
 

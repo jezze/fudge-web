@@ -9,7 +9,7 @@
 title  Fudge
 root   (hd0,0)
 kernel /fudge
-module /initrd.tar
+module /fudge.cpio
         </pre>
     </xsl:template>
 </xsl:stylesheet>

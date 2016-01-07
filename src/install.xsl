@@ -8,9 +8,9 @@
         <pre>
 $ make install
         </pre>
-        <p>This will copy fudge and initrd.tar to /boot. If your boot partition is somewhere else you can override the default /boot by adding the INSTALL_PATH variable:</p>
+        <p>This will copy fudge and fudge.cpio to /boot. If your boot partition is somewhere else you can override the default /boot by adding the DIR_INSTALL variable:</p>
         <pre>
-$ make INSTALL_PATH=/some/place/ install
+$ make DIR_INSTALL=/some/place/ install
         </pre>
         <h2>Next step</h2>
         <p><a href="grub.html">Use Fudge with the Grub legacy bootloader</a>.</p>
